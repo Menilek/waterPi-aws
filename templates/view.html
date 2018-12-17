@@ -1,53 +1,56 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <!-- <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}"/> -->
-    <link rel="stylesheet" href="css/icons/foundation-icons/foundation-icons.css">    
-    <link rel="stylesheet" href="css/foundation.min.css">
-    <link rel="stylesheet" href="css/app.css">
+    <!-- <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}"/> --> 
+    <link rel="stylesheet" href="{{url_for('static', filename='css/foundation.min.css')}}"/>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/app.css')}}"/>
     <script src="http://d3js.org/d3.v3.min.js" language="JavaScript"></script>
     <script type="text/JavaScript" src="{{url_for('static', filename='d3.js')}}"></script>
     <title>waterPi</title>
   </head>
   <body>
-  <div id="wrapper">
-    <div class="flex-container" id="dataPanels">
-      <div class="panel"><p class="heading">TIME OF READING</p>
-      <p class="data">{{items[0]}}</p>
+    <div class="row text-center content">
+      <div class="card">
+        <div class="row">
+          <svg id="fillgauge" width="50%" height="200">{{items[2]}}</svg>
+        </div>
+        <div class="card-section">
+          <div>
+            <p>TIME OF READING</p>
+            <p>{{items[0]}}</p>
+          </div>        
+          <div>
+            <p>LITRES</p>
+            <p>{{items[1]}}L</p>
+          </div>
+          <div class="row">
+            <form action="{{url_for('newReading')}}" method="POST">
+              <input type="submit" name="takeReading" class="button" value="NEW READING">
+            </form>
+          </div>
+        </div>
       </div>
-
-      <svg id="fillgauge" width="19%" height="200">{{items[2]}}</svg> 
-
-      <div class="panel"><p class="heading">LITRES</p>
-      <p class="data">{{items[1]}}L</p>
-      </div>
-
-      <form action="{{url_for('newReading')}}" method="POST">
-      <input type="submit" name="takeReading" class="button" value="NEW READING">
-      </form>
-
     </div>
-  </div>
   
-  <script language="JavaScript">
-    var config = liquidFillGaugeDefaultSettings();
-    config.circleThickness = 0.15;
-    config.textVertPosition = 0.8;
-    config.waveAnimateTime = 1000;
-    config.waveHeight = 0.05;
-    config.waveAnimate = true;
-    config.waveRise = false;
-    config.waveOffset = 0.25;
-    config.textSize = 0.75;
-    config.waveCount = 3;
-    config.displayPercent = true;
-    var gauge = loadLiquidFillGauge("fillgauge", {{items[2]}}, config);
-  </script>
+    <script language="JavaScript">
+      var config = liquidFillGaugeDefaultSettings();
+      config.circleThickness = 0.15;
+      config.textVertPosition = 0.8;
+      config.waveAnimateTime = 1000;
+      config.waveHeight = 0.05;
+      config.waveAnimate = true;
+      config.waveRise = false;
+      config.waveOffset = 0.25;
+      config.textSize = 0.75;
+      config.waveCount = 3;
+      config.displayPercent = true;
+      var gauge = loadLiquidFillGauge("fillgauge", {{items[2]}}, config);
+    </script>
 
-  <script src="js/vendor/jquery.js"></script>
-  <script src="js/vendor/what-input.js"></script>
-  <script src="js/vendor/foundation.min.js"></script>
-  <script src="js/app.js"></script>
+    <script src="{{url_for('static', filename='js/vendor/jquery.js')}}"></script>
+    <script src="{{url_for('static', filename='js/vendor/what-input.js')}}"></script>
+    <script src="{{url_for('static', filename='js/vendor/foundation.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/app.js')}}"></script>
   
-</body>
+  </body>
 </html>
