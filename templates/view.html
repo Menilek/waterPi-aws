@@ -1,7 +1,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <!-- <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}"/> --> 
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}"/>
     <link rel="stylesheet" href="{{url_for('static', filename='css/foundation.min.css')}}"/>
     <link rel="stylesheet" href="{{url_for('static', filename='css/app.css')}}"/>
     <script src="http://d3js.org/d3.v3.min.js" language="JavaScript"></script>
@@ -10,23 +10,25 @@
   </head>
   <body>
     <div class="row text-center content">
-      <div class="card">
-        <div class="row">
-          <svg id="fillgauge" width="50%" height="200">{{items[2]}}</svg>
-        </div>
-        <div class="card-section">
-          <div>
-            <p>TIME OF READING</p>
-            <p>{{items[0]}}</p>
-          </div>        
-          <div>
-            <p>LITRES</p>
-            <p>{{items[1]}}L</p>
-          </div>
+      <div class="columns large-8 large-offset-4">
+        <div class="card" style="width: 500px;">
           <div class="row">
-            <form action="{{url_for('newReading')}}" method="POST">
-              <input type="submit" name="takeReading" class="button" value="NEW READING">
-            </form>
+            <svg id="fillgauge" width="50%" height="200">{{items[2]}}</svg>
+          </div>
+          <div class="card-section">
+            <div>
+              <p>TIME OF READING</p>
+              <p>{{items[0]}}</p>
+            </div>        
+            <div>
+              <p>LITRES</p>
+              <p>{{items[1]}}L</p>
+            </div>
+            <div class="row">
+              <form action="{{url_for('newReading')}}" method="POST">
+                <input type="submit" name="takeReading" class="button" value="NEW READING">
+              </form>
+            </div>
           </div>
         </div>
       </div>
