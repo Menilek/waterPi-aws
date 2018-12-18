@@ -1,7 +1,7 @@
 from datetime import datetime
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import exc
+#from sqlalchemy import exc
 
 #Parses data and changes the format of the datetime
 def formatReadingDataForDisplay(data):
@@ -25,17 +25,18 @@ def handleError(data):
 #Takes a list of data and inserts each element of the list into a column in the table
 def insertNewReadingToDB(waterData):
     reading = Reading(waterData[0], waterData[1])
-    db.session.add(reading)
     try:
+        db.session.add(reading)
         db.session.commit()
-    except exc.IntegrityError:
+        db.session.close()
+    except:
         handleError(reading)
 
-app = Flask(__name__)
+application = Flask(__name__)
 #Heroku db details susceptible to change
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://water:waterPi@localhost:1234'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
+application.config.from_object('config')
+application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(application)
 
 #alter table Reading ADD id integer PRIMARY KEY, ADD datetime timestamp [without time zone] NOT NULL, ADD litres numeric NOT NULL, percentage integer NOT NULL
 class Reading(db.Model):
