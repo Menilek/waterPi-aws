@@ -3,7 +3,6 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 #from sqlalchemy import exc
 
-#Parses data and changes the format of the datetime
 def formatReadingDataForDisplay(data):
     formattedTime = data[0].strftime('%H:%M %d/%m/%Y')
     litres = data[1]
@@ -11,7 +10,6 @@ def formatReadingDataForDisplay(data):
     items = [formattedTime, litres, percent]
     return(items)
 
-#Retrieves the latest row entered into the database
 def getLastReadingFromDB():
     queryData = db.engine.execute("SELECT date_trunc('second', created_on), litres, percentage FROM Reading ORDER BY id DESC LIMIT 1").first()
     formattedData = formatReadingDataForDisplay(queryData)
@@ -22,7 +20,6 @@ def handleError(data):
     db.session.add(data)
     db.session.flush()
 
-#Takes a list of data and inserts each element of the list into a column in the table
 def insertNewReadingToDB(waterData):
     reading = Reading(waterData[0], waterData[1])
     try:
@@ -33,7 +30,6 @@ def insertNewReadingToDB(waterData):
         handleError(reading)
 
 application = Flask(__name__)
-#Heroku db details susceptible to change
 application.config.from_object('config')
 application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(application)
