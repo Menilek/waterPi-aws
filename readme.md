@@ -1,1 +1,1 @@
-Check out how much water is in your tank. Foundation will have it all looking smooth on mobile, tablet and desktop.. oh and laptop!
+Check out how much water is in your tank at http://waterpi.eu-west-2.elasticbeanstalk.com/.
