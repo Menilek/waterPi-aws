@@ -1,7 +1,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <link rel='icon' type='image/x-icon' href="{{url_for('static', filename='favicon.ico')}}/>
+    <link rel='icon' type='image/x-icon' href="{{url_for('static', filename='favicon.ico')}}"/>
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}"/>
     <link rel="stylesheet" href="{{url_for('static', filename='css/foundation.min.css')}}"/>
     <link rel="stylesheet" href="{{url_for('static', filename='css/app.css')}}"/>
@@ -10,24 +10,24 @@
     <title>waterPi</title>
   </head>
   <body>
-    <div class="row text-center content">
-      <div class="columns large-8 large-offset-4">
-        <div class="card" style="width: 500px;">
-          <div class="row">
-            <svg id="fillgauge" width="50%" height="200">{{items[2]}}</svg>
-          </div>
-          <div class="card-section">
-            <div>
-              <h5>TIME OF READING</h5>
-              <h6>{{items[0]}}</h6>
-            </div>        
-            <div>
-              <h5>LITRES</h5>
-              <h6>{{items[1]}}L</h6>
-            </div>
+    <div class="grid-container grid-container-padded">
+      <div class="grid-x flex-container align-center-middle text-center flex-dir-column">
+        <div class="cell large-8 medium-10 small-12"></div>
+          <div class="card" style="width: 450px; height: 500px;">
             <div class="row">
+              <svg id="fillgauge" width="50%" height="200">{{items[2]}}</svg>
+            </div>
+            <div class="card-section">
+              <div>
+                <h5>TIME OF READING</h5>
+                <h6>{{items[0]}}</h6>
+              </div>        
+              <div>
+                <h5>LITRES</h5>
+                <h6>{{items[1]}}L</h6>
+              </div>
               <form action="{{url_for('newReading')}}" method="POST">
-                <input type="submit" name="takeReading" class="button" value="NEW READING">
+                  <input type="submit" name="takeReading" class="button" value="NEW READING">
               </form>
             </div>
           </div>
