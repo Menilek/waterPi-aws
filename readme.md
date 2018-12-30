@@ -1,1 +1,1 @@
-Check out how much water is in your tank at http://waterpi.eu-west-2.elasticbeanstalk.com/.
+Check out how much water is in your tank at http://waterpi.qqt8zxppwq.eu-west-2.elasticbeanstalk.com/

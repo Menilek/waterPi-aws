@@ -1,4 +1,4 @@
-from app.init import db
+from application import db
 from datetime import datetime
 
 class Reading(db.Model):

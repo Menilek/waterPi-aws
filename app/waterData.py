@@ -1,5 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
-from app.init import db
+from application import db
 from app.models import Reading
 
 def formatReadingDataForDisplay(data):

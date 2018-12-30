@@ -4,6 +4,7 @@ tcl/
 __pycache__/
 readmepic.jpg
 config.py
+awsRDS.py
 .ebignore
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
