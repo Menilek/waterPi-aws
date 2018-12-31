@@ -1,28 +1,29 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
     <link rel='icon' type='image/x-icon' href="{{url_for('static', filename='favicon.ico')}}"/>
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}"/>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}"/>
     <link rel="stylesheet" href="{{url_for('static', filename='css/foundation.min.css')}}"/>
     <link rel="stylesheet" href="{{url_for('static', filename='css/app.css')}}"/>
     <script src="http://d3js.org/d3.v3.min.js" language="JavaScript"></script>
-    <script type="text/JavaScript" src="{{url_for('static', filename='d3.js')}}"></script>
+    <script src="{{url_for('static', filename='d3.js')}}" language="JavaScript"></script>
     <title>waterPi</title>
   </head>
   <body>
     <div class="grid-container grid-container-padded">
       <div class="grid-x flex-container align-center-middle text-center flex-dir-column">
-        <div class="cell large-8 medium-10 small-12"></div>
-          <div class="card" style="width: 450px; height: 500px;">
+        <div class="cell large-8 medium-10 small-12"></div><!-- medium-8 small-8 -->
+          <div class="card">
             <div class="row">
-              <svg id="fillgauge" width="50%" height="200">{{items[2]}}</svg>
+              <svg id="fillgauge">{{items[2]}}</svg>
             </div>
             <div class="card-section">
-              <div>
+              <div id="readingTime">
                 <h5>TIME OF READING</h5>
                 <h6>{{items[0]}}</h6>
-              </div>        
-              <div>
+              </div>
+              <div id="litres">
                 <h5>LITRES</h5>
                 <h6>{{items[1]}}L</h6>
               </div>

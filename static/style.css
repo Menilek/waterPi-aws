@@ -1,3 +1,110 @@
 body{
 	background-color: #80d8ff !important;
 }
+#fillgauge{
+	margin-top: 5%;
+	margin-bottom: 5%;
+	width: 40%;
+	height: 40%;
+}
+.card{
+ 	position: absolute;
+	top: 10%;
+	width: 40%;
+	height: 80%;
+}
+#readingTime{
+	margin-bottom: 5%;
+}
+#litres{
+	margin-bottom: 5%;
+}
+@media screen and (max-width: 1024px){
+	.card{
+		position: absolute;
+		top: 15%;
+		width: 45%;
+		height: 75%;
+   }
+   #fillgauge{
+		margin-top: 5%;
+		width: 40%;
+		height: 40%;
+	}
+}
+@media screen and (max-width: 720px){
+	.card{
+ 		position: absolute;
+		top: 15%;
+		width: 50%;
+		height: 70%;
+	}
+	#fillgauge{
+		margin-top: 3%;
+		width: 40%;
+		height: 40%;
+	}
+	#readingTime{
+		margin-bottom: 3%;
+	}
+	#litres{
+		margin-bottom: 3%;
+	}
+}
+@media screen and (max-width: 600px){
+	.card{
+		position: absolute;
+		top: 15%;
+		width: 60%;
+		height: 70%;
+	}
+	#fillgauge{
+		margin-top: 3%;
+		width: 40%;
+		height: 40%;
+	}
+	#readingTime{
+		margin-bottom: 2%;
+	}
+	#litres{
+		margin-bottom: 2%;
+	}
+}
+@media screen and (max-width: 480px){
+	.card{
+		position: absolute;
+		top: 15%;
+		width: 60%;
+		height: 70%;
+	}
+	#fillgauge{
+		margin-top: 3%;
+		width: 40%;
+		height: 40%;
+	}
+	#readingTime{
+		margin-bottom: 2%;
+	}
+	#litres{
+		margin-bottom: 2%;
+	}
+}
+@media screen and (max-width: 320px){
+	.card{
+		position: absolute;
+		top: 15%;
+		width: 75%;
+		height: 70%;
+	}
+	#fillgauge{
+		margin-top: 3%;
+		width: 40%;
+		height: 40%;
+	}
+	#readingTime{
+		margin-bottom: 2%;
+	}
+	#litres{
+		margin-bottom: 2%;
+	}
+}
